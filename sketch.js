@@ -9,15 +9,27 @@ function setup () {
 function draw () {
     translate(width / 2, height / 2)
     background(0);
-    current.update();
-    current.show();
-
-    if(current.finished()) {
-        snowflake.push(current);
-        current = new Particle(width / 2, 0);
+    
+    while(!current.finished() && !current.intersects(snowflake)) {
+        current.update();
     }
+    snowflake.push(current);
+    current = new Particle(width / 2, 0);
 
-    snowflake.forEach((particle) => {
-        particle.show();
-    })
+    for (let i = 0; i < 6; i++) {
+        rotate(PI / 3)
+        current.show();
+        snowflake.forEach((particle) => {
+            particle.show();
+        })
+
+        push();
+        scale(1, -1);
+        current.show();
+        snowflake.forEach((particle) => {
+            particle.show();
+        })
+        pop();
+    }
+    
 }

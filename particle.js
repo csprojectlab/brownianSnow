@@ -19,4 +19,13 @@ class Particle {
     finished () {
         return (this.x < 0);
     }
+
+    intersects (snowflake) {        
+        for (let i = 0; i < snowflake.length; i++) {
+            let d = dist(snowflake[i].x, snowflake[i].y, this.x, this.y);
+            if(d < this.r * 2 + this.r) 
+                return true;
+        }
+        return false;
+    }
 }
