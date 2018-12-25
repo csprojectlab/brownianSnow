@@ -4,7 +4,7 @@ let time = 0;
 
 function setup () {
     createCanvas (600, 600)
-    current = new Particle(width / 2, 0);
+    current = new Particle(width / 2, random(10));
     snowflake = [];
 }
 
