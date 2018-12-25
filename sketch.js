@@ -1,9 +1,11 @@
 let current;
 let snowflake = [];
+let time = 0;
 
 function setup () {
     createCanvas (600, 600)
     current = new Particle(width / 2, 0);
+    snowflake = [];
 }
 
 function draw () {
@@ -30,6 +32,10 @@ function draw () {
             particle.show();
         })
         pop();
+    }
+    time++;
+    if(time % 200 == 0) {
+        setup();
     }
     
 }

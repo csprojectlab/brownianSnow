@@ -7,12 +7,12 @@ class Particle {
 
     update () {
         this.x -= 1;
-        this.y += random(-1, 1);
+        this.y += random(-3, 4);
     }
 
     show () {
-        fill(255);
-        stroke(255)        
+        fill(random(255), random(255), random(255));
+        stroke(random(255), random(255), random(255))     
         ellipse(this.x, this.y, this.r * 2, this.r * 2);
     }
 
